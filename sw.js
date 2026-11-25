@@ -1,6 +1,6 @@
 // Mi Rutina - service worker: funciona sin internet y se actualiza cuando hay señal
-const CACHE = 'mi-rutina-v1';
-const BASE = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png'];
+const CACHE = 'mi-rutina-v2';
+const BASE = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png', './favicon.ico', './favicon-32.png'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(BASE)).then(() => self.skipWaiting()));
