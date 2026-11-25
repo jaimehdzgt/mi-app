@@ -49,6 +49,9 @@ var raw = unb64(PAYLOAD), salt = raw.slice(0,16), iv = raw.slice(16,28), ct = ra
 function openApp(key){
   return crypto.subtle.decrypt({name:"AES-GCM", iv:iv}, key, ct).then(function(pt){
     var html = new TextDecoder().decode(pt);
+    var PWA = '<link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="icon-192.png"><meta name="theme-color" content="#000000">';
+    html = html.replace(/<link[^>]*rel=["\']?manifest["\']?[^>]*>/gi, "");
+    if (/<head(\s[^>]*)?>/i.test(html)) html = html.replace(/<head(\s[^>]*)?>/i, function(m){ return m + PWA; }); else html = PWA + html;
     var go = function(){ document.open(); document.write(html); document.close(); };
     if (document.readyState === "complete") setTimeout(go, 0); else window.addEventListener("load", function(){ setTimeout(go, 0); }, {once:true});
   });
@@ -75,6 +78,5 @@ document.getElementById("f").addEventListener("submit", function(ev){
   }).then(openApp).catch(function(){ go.disabled = false; go.textContent = "Abrir"; msg.textContent = "Contraseña incorrecta. Revisa mayúsculas y vuelve a intentar."; });
 });
 </script>
-<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js');}</script>
 </body>
 </html>
