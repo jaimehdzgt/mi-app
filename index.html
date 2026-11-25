@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+ <link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="icon-192.png">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#000000">
@@ -77,5 +78,6 @@ document.getElementById("f").addEventListener("submit", function(ev){
   }).then(openApp).catch(function(){ go.disabled = false; go.textContent = "Abrir"; msg.textContent = "Contraseña incorrecta. Revisa mayúsculas y vuelve a intentar."; });
 });
 </script>
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js');}</script>
 </body>
 </html>
