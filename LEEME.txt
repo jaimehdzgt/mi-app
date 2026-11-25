@@ -1,0 +1,6 @@
+MI RUTINA - VERSION CIFRADA
+
+1. Abre "cifrador-NO-SUBIR.html" en Chrome o Edge de tu computadora.
+2. Escribe tu contraseña dos veces y toca "Generar index.html". Se descarga index.html.
+3. Sube a tu repositorio de GitHub: index.html (el que se descargó), manifest.webmanifest, sw.js y la carpeta icons.
+4. NO subas cifrador-NO-SUBIR.html: contiene la app sin cifrar.
