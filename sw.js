@@ -1,5 +1,5 @@
 // Mi Rutina - service worker: funciona sin internet y se actualiza cuando hay señal
-const CACHE = 'mi-rutina-202611262245';
+const CACHE = 'mi-rutina-202611270008';
 const BASE = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png', './favicon.ico', './favicon-32.png', './apple-touch-icon.png', './icon-maskable-192.png', './icon-maskable-512.png'];
 
 self.addEventListener('install', e => {
